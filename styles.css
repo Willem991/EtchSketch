@@ -1,6 +1,32 @@
+body{
+background-color: rgb(230, 233, 233);
+}
+
+.fill{
+    background-color: black !important;
+}
+
+#headText{
+    font-size: 50px;
+    font-family: 'Franklin Gothic Medium';
+    grid-column-start: 2;
+}
+
+#Heading{
+
+    display: grid;
+    grid-template-columns: 30vw 480px;;
+    justify-items: center;
+
+    
+}
+
 #mainPanel{
     display: grid;
-    grid-template-columns: 30vw 486px;
+    /*This bottom value need to be variable*/
+    grid-template-columns: 30vw 480px;
+    
+    
 }
 
 #controls{
@@ -14,13 +40,14 @@
     grid-template-columns: repeat(16, 30px);
     grid-template-rows: repeat(16, 30px);
     grid-column-start: 2;
-    border-style: solid;
+    box-shadow:5px 5px 5px grey;
+
 }
 
 .colouring{
     height: 30px;
     width: 30px ;
-    background-color: blue;
+    background-color:white;
 }
 .colouring:hover{
     background-color: black;

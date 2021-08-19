@@ -78,8 +78,8 @@ background-color: rgb(230, 233, 233);
 
 #mainBlock{
     display: grid;
-    grid-template-columns: repeat(16, 30px);
-    grid-template-rows: repeat(16, 30px);
+    /*grid-template-columns: repeat(16, 30px);
+    grid-template-rows: repeat(16, 30px);*/
     grid-column-start: 2;
     box-shadow:5px 5px 5px grey;
 
@@ -87,8 +87,7 @@ background-color: rgb(230, 233, 233);
 
 .colouring{
     /*This bottom value need to be variable*/
-    height: 30px;
-    width: 30px ;
+
     background-color:white;
 }
 .colouring:hover{

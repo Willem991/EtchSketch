@@ -86,8 +86,9 @@ buttons.forEach((button) =>{
         }else if(selectorValue == "rainbow"){
             console.log(selectorValue);
             for(let j = 0; j < n; j++){
-                eval(k + j + ".onmouseover = () =>{"+ k + j + ".style.backgroundColor = 'red'}");
-                //eval(k + j + ".addEventListener('mouseover', () => {" + k + j + ".style.backgroundColor = 'red'})");
+                let r = `rgb(${Math.floor(Math.random()*257)},${Math.floor(Math.random()*257)},${Math.floor(Math.random()*257)})`;
+                console.log(r);
+                eval(k + j + ".onmouseover = () =>{"+ k + j + ".style.backgroundColor = '" + r + "'}");
             }
         }
     });

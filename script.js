@@ -79,6 +79,11 @@ let customColor = "black";
 colorPick.addEventListener('input', () =>{
     selectorValue = "custom";
     customColor = colorPick.value;
+
+    blackMode.classList.remove("active");
+    rainbowMode.classList.remove("active");
+    colorPick.classList.add('active');
+
     if(selectorValue == "custom"){
         for(let j = 0; j < n; j++){
             eval(k + j + ".onmouseover = () =>{"+ k + j + ".style.backgroundColor = '" + customColor + "'}");
@@ -92,16 +97,26 @@ const buttons = document.querySelectorAll('button');
 //Implementing all button functionality
 buttons.forEach((button) =>{
 
+    
     button.addEventListener('click', () =>{
+
+        if(selectorValue != "clear"){
+        buttons[0].classList.remove("active");
+        buttons[1].classList.remove("active");
+        colorPick.classList.remove('active');
+        };
+
         if(selectorValue == "clear"){
             for(let j = 0; j < n; j++){
                 eval(k + j + ".style.backgroundColor = 'white'");
             }
         }else if(selectorValue == "black"){
+            buttons[0].classList.add("active");
             for(let j = 0; j < n; j++){
                 eval(k + j + ".onmouseover = () =>{"+ k + j + ".style.backgroundColor = 'black'}");
             }
         }else if(selectorValue == "rainbow"){
+            buttons[1].classList.add("active");
             for(let j = 0; j < n; j++){
                 let r = `rgb(${Math.floor(Math.random()*257)},${Math.floor(Math.random()*257)},${Math.floor(Math.random()*257)})`;
                 eval(k + j + ".onmouseover = () =>{"+ k + j + ".style.backgroundColor = '" + r + "'}");

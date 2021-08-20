@@ -1,9 +1,19 @@
 body{
 background-color: rgb(230, 233, 233);
+background-image: url(images/paint.jpg);
 }
 
-.fill{
-    background-color: black !important;
+.active{
+    background-color: rgb(249, 160, 252);
+    color: rgb(29, 1, 73);
+    font-weight:900;
+    font-size: 14px;
+    font-family: "Rampart One";
+}
+
+button{
+    font-family: "Rampart One";
+    font-weight: bold;
 }
 
 #colorPick{
@@ -59,7 +69,9 @@ background-color: rgb(230, 233, 233);
     font-size: 50px;
     font-family: 'Franklin Gothic Medium';
     grid-column-start: 2;
-    text-shadow: 5px 5px 5px rgb(138, 138, 139);
+    text-shadow: 5px 5px 5px rgb(101, 0, 148);
+    font-family: "Rampart One";
+    
 }
 
 #Heading{
@@ -100,4 +112,10 @@ background-color: rgb(230, 233, 233);
 }
 .colouring:hover{
     background-color: black;
+}
+
+#rangeDisplay{
+    font-family: "Indie Flower";
+    font-size: 30px;
+    font-weight: bold;
 }

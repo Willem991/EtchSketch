@@ -33,7 +33,7 @@ range.addEventListener('click', () => {
         eval(k + i + ".style.height = '" + wh + "px'" );
     
         if(selectorValue == "black"){
-        eval(k + i + ".addEventListener('mouseover', () => {" + k + i + ".classList.add('fill');})");
+        eval(k + i + ".addEventListener('mouseover', () => {" + k + i + ".style.backgroundColor = 'black'})");
         }
     
         eval('mainDiv.appendChild(' + k + i + ');');
@@ -54,14 +54,44 @@ blackMode/addEventListener('click', () => {
 const clearButton = document.querySelector("#clear");
 
 clearButton.addEventListener('click', () => {
-    console.log(n);
-    for(let j = 0; j < n; j++){
-
-        if(selectorValue == "black"){
-        eval(k + j + ".classList.remove('fill');");
-        }
-    }
+    selectorValue = "clear";
 });
+//
+
+//setting rainbowmode button functionality
+const rainbowMode = document.querySelector('#rainbowMode');
+
+rainbowMode.addEventListener('click', () => {
+    selectorValue = "rainbow";
+})
+//
+
+const buttons = document.querySelectorAll('button');
+console.log(buttons);
+
+//Implementing all button functionality
+buttons.forEach((button) =>{
+
+    button.addEventListener('click', () =>{
+        if(selectorValue == "clear"){
+            console.log(selectorValue);
+            for(let j = 0; j < n; j++){
+                eval(k + j + ".style.backgroundColor = 'white'");
+            }
+        }else if(selectorValue == "black"){
+            console.log(selectorValue);
+            for(let j = 0; j < n; j++){
+                eval(k + j + ".onmouseover = () =>{"+ k + j + ".style.backgroundColor = 'black'}");
+            }
+        }else if(selectorValue == "rainbow"){
+            console.log(selectorValue);
+            for(let j = 0; j < n; j++){
+                eval(k + j + ".onmouseover = () =>{"+ k + j + ".style.backgroundColor = 'red'}");
+                //eval(k + j + ".addEventListener('mouseover', () => {" + k + j + ".style.backgroundColor = 'red'})");
+            }
+        }
+    });
+} );
 //
 
 mainDiv.style.gridTemplateColumns = "repeat(16, 30px)";
@@ -74,13 +104,14 @@ for(let i = 0; i < n; i++){
     eval(k + i + ".style.height = '" + wh + "px'" );
 
     if(selectorValue == "black"){
-    eval(k + i + ".addEventListener('mouseover', () => {" + k + i + ".classList.add('fill');})");
+    //eval(k + i + ".addEventListener('mouseover', () => {" + k + i + ".style.backgroundColor = 'black'})");
+    eval(k + i + ".onmouseover = () =>{"+ k + i + ".style.backgroundColor = 'black'}");
     }
 
     eval('mainDiv.appendChild(' + k + i + ');');
 }
 
-plc = 2000;
+
 
 
 

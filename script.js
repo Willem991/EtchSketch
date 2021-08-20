@@ -13,9 +13,10 @@ const rangeDisplay = document.querySelector('#rangeDisplay');
 
 range.addEventListener('click', () => {
 
+    console.log(selectorValue);
     for(let i = 0; i < (n); i++){
         eval('mainDiv.removeChild(' + k + i + ');');
-    }
+    };
 
     rangeDisplay.textContent = range.value;
     n = range.value*range.value;
@@ -33,21 +34,26 @@ range.addEventListener('click', () => {
         eval(k + i + ".style.height = '" + wh + "px'" );
     
         if(selectorValue == "black"){
-        eval(k + i + ".addEventListener('mouseover', () => {" + k + i + ".style.backgroundColor = 'black'})");
-        }
+            eval(k + i + ".addEventListener('mouseover', () => {" + k + i + ".style.backgroundColor = 'black'})");
+        }else if(selectorValue == "custom"){
+            eval(k + i + ".onmouseover = () =>{"+ k + i + ".style.backgroundColor = '" + customColor + "'}");
+        }else if(selectorValue == "rainbow"){
+            let r = `rgb(${Math.floor(Math.random()*257)},${Math.floor(Math.random()*257)},${Math.floor(Math.random()*257)})`;
+            eval(k + i + ".onmouseover = () =>{"+ k + i + ".style.backgroundColor = '" + r + "'}");
+        };
     
         eval('mainDiv.appendChild(' + k + i + ');');
-    }
-})
+    };
+});
 //
 
 
 //setting the black mode button functionality
 const blackMode = document.querySelector('#blackMode');
 
-blackMode/addEventListener('click', () => {
+blackMode.addEventListener('click', () => {
     selectorValue = "black";
-})
+});
 //
 
 //setting clear button functionality
@@ -63,34 +69,44 @@ const rainbowMode = document.querySelector('#rainbowMode');
 
 rainbowMode.addEventListener('click', () => {
     selectorValue = "rainbow";
-})
+});
+//
+
+//setting up the colorPick button
+const colorPick = document.querySelector('#colorPick');
+let customColor = "black";
+
+colorPick.addEventListener('mouseout', () =>{
+    selectorValue = "custom";
+    customColor = colorPick.value;
+    if(selectorValue == "custom"){
+        for(let j = 0; j < n; j++){
+            eval(k + j + ".onmouseover = () =>{"+ k + j + ".style.backgroundColor = '" + customColor + "'}");
+        };
+    };
+});
 //
 
 const buttons = document.querySelectorAll('button');
-console.log(buttons);
 
 //Implementing all button functionality
 buttons.forEach((button) =>{
 
     button.addEventListener('click', () =>{
         if(selectorValue == "clear"){
-            console.log(selectorValue);
             for(let j = 0; j < n; j++){
                 eval(k + j + ".style.backgroundColor = 'white'");
             }
         }else if(selectorValue == "black"){
-            console.log(selectorValue);
             for(let j = 0; j < n; j++){
                 eval(k + j + ".onmouseover = () =>{"+ k + j + ".style.backgroundColor = 'black'}");
             }
         }else if(selectorValue == "rainbow"){
-            console.log(selectorValue);
             for(let j = 0; j < n; j++){
                 let r = `rgb(${Math.floor(Math.random()*257)},${Math.floor(Math.random()*257)},${Math.floor(Math.random()*257)})`;
-                console.log(r);
                 eval(k + j + ".onmouseover = () =>{"+ k + j + ".style.backgroundColor = '" + r + "'}");
             }
-        }
+        };
     });
 } );
 //

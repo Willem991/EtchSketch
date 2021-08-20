@@ -4,15 +4,16 @@ background-image: url(images/paint.jpg);
 }
 
 .active{
-    background-color: rgb(249, 160, 252);
+    /*background-color: rgb(249, 160, 252);*/
     color: rgb(29, 1, 73);
+    background-image: url(images/button.jpg);
     font-weight:900;
     font-size: 14px;
-    font-family: "Rampart One";
+    font-family: "Lobster";
 }
 
 button{
-    font-family: "Rampart One";
+    font-family: "Lobster";
     font-weight: bold;
 }
 

@@ -76,7 +76,7 @@ rainbowMode.addEventListener('click', () => {
 const colorPick = document.querySelector('#colorPick');
 let customColor = "black";
 
-colorPick.addEventListener('mouseout', () =>{
+colorPick.addEventListener('input', () =>{
     selectorValue = "custom";
     customColor = colorPick.value;
     if(selectorValue == "custom"){
